@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Equipos NBA</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Creamos un elemento y le asociamos el id app para hacer referencia a él desde vuejs -->
+    <div id="app">
+            <div class="row" >
+                <!-- Utilizamos la directiva v-for para crear tantas columnas como equipos haya en el array que nos devuelve la función
+                processedTeams de nuestro script de Vue -->
+                <div class="col-6 col-md-4 col-lg-3" v-for="team in processedTeams">
+                        <div class="card">
+                                
+                                <!-- En esta etiqueta utilizamos los :src para darle valor al atributo
+                                src de la etiqueta img dándole el valor de la url de la imagen que hemos
+                                añadido al equipo obtenido de la API en el script de Vue  -->
+                                <img :src="team.image_url">
+                                <div class="card-body">
+                                <div class="card-text">
+                                    <label>City: </label> {{ team.city }} </br>
+                                    <label>Conference: </label> {{team.conference}} </br>
+                                    <label>Division: </label> {{team.division}}
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script> -->
+    <!-- Importamos vue y axios, así como el fichero app.js donde crearemos nuestro app de vue-->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Equipos NBA</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Creamos un elemento y le asociamos el id app para hacer referencia a él desde vuejs -->
+    <div id="app">
+        <h1 class="text-center">Equipos NBA</h1>
+        <input id="input-search" type="text" class="form-control" v-model="textSearch" placeholder='Conference...'>
+            <div class="row" >
+                
+                <div class="row" id="list-teams" v-if="teamsFilter && teamsFilter.length">
+                    <!-- <div class="panel panel-default" v-for="country of countriesFilter"> -->
+                <div class="col-6 col-md-4 col-lg-3" v-for="team in teamsFilter">
+                        <div class="card">
+                                
+                                <!-- <div class="card-header bg-primary">
+                                    {{ team.full_name }}
+                                </div> -->
+                                <img :src="team.image_url">
+                                <div class="card-body">
+                                <div class="card-text">
+                                    <label>City: </label> {{ team.city }} </br>
+                                    <label>Conference: </label> {{team.conference}} </br>
+                                    <label>Division: </label> {{team.division}}
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script> -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
